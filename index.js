@@ -7,8 +7,16 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
+  socket.on('iceEvent', function(msg){
+    newEvent = {
+      msg: msg,
+      eventType: 'userAction',
+      entityName: 'a1',
+      entityType: 'warning',
+      timestamp: new Date(),
+      id: parseInt(Math.random()*10000) 
+     };
+    io.emit('iceEvent', newEvent);
   });
 });
 
