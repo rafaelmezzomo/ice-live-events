@@ -1,10 +1,14 @@
-var app = require('express')();
+var express = require('express');
+var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var port = process.env.PORT || 3000
 
-app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
-});
+// app.get('/', function(req, res){
+//   res.sendFile(__dirname + '/index.html');
+// });
+app.use(express.static(__dirname + "/"))
+
 
 io.on('connection', function(socket){
   socket.on('iceEvent', function(msg){
@@ -14,12 +18,12 @@ io.on('connection', function(socket){
       entityName: 'a1',
       entityType: 'warning',
       timestamp: new Date(),
-      id: parseInt(Math.random()*10000) 
+      id: parseInt(Math.random()*10000)
      };
     io.emit('iceEvent', newEvent);
   });
 });
 
-http.listen(3000, function(){
+http.listen(port, function(){
   console.log('listening on *:3000');
 });
