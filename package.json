@@ -2,7 +2,9 @@
   "name": "ice-live-events",
   "author": "VPS",
   "version": "0.0.1",
-  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "description": "Simulation of ice events",
   "license": "MIT",
   "dependencies": {
