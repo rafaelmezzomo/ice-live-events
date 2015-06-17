@@ -10,6 +10,15 @@
     "socket.io": "^1.2.0"
   },
   "engines": {
-    "node": "0.10.x"
-  }
+    "node": "0.12.2"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rafaelmezzomo/ice-live-events.git"
+  },
+  "license": "MIT"
 }
+
